@@ -10,6 +10,7 @@
   </head>
   <body>
     <div class="container">
+      <div class="row">
       <h1>Déli gyümölcsök</h1>
       <h4>Neked melyik a kedvenced?</h4>
       <select id="gyumolcs" onchange="showDetails(this)">
@@ -18,8 +19,9 @@
     </div>
     <br>
 <div class="row">
-  <div class="col-md-5"></div>
-  <div class="col-md-2"></div>
+  <div class="col-md-5 d-flex h-100"></div>
+  <div class="col-md-2 d-flex h-100"></div>
+</div>
 </div>
 
     <script src="data_fruits.js"></script>
@@ -36,8 +38,11 @@
         let id = domObj.value;
         console.log(id);
         let selectedObj = fruits.find((obj) => obj.id == id);
+        let alma = fruits[id-1].name
+        console.log(alma);
         document.querySelector(".col-md-5").innerHTML=`<img src="img/${selectedObj.image}" alt="" class="img-fluid">`
-        document.querySelector(".col-md-2").innerHTML=`<div class="bg-white">${selectedObj.descr}</div>`
+        document.querySelector(".col-md-2").innerHTML=`<div class="stilus"> ${alma} </div> <br> ${selectedObj.descr}`
+        document.querySelector(".col-md-2").classList.add("bg-white")
         console.log(selectedObj.descr); 
       }
     </script>
